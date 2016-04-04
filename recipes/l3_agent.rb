@@ -79,10 +79,10 @@ end
 
 agent_mode = 'legacy'
 if [true, 'true', 'auto'].include?(node['openstack']['network']['l3']['router_distributed'])
-  if recipe_included? 'openstack-network::server'
-    agent_mode = 'dvr_snat'
-  elsif recipe_included? 'openstack-compute::compute'
+  if recipe_included? 'openstack-compute::compute'
     agent_mode = 'dvr'
+  else
+    agent_mode = 'dvr_snat'
   end
 end
 
