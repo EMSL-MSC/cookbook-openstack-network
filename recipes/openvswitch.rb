@@ -113,6 +113,7 @@ if ['auto', 'true', true].include?(node['openstack']['network']['l3']['router_di
   tunnel_types = 'gre, vxlan'
   l2_population = 'True'
   enable_distributed_routing = 'True'
+  arp_responder = 'True'
 end
 template '/etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini' do
   source 'plugins/openvswitch/ovs_neutron_plugin.ini.erb'
@@ -123,6 +124,7 @@ template '/etc/neutron/plugins/openvswitch/ovs_neutron_plugin.ini' do
     local_ip: openvswitch_endpoint.host,
     tunnel_types: tunnel_types,
     l2_population: l2_population,
+    arp_responder: arp_responder,
     enable_distributed_routing: enable_distributed_routing
   )
   only_if { platform_family?('rhel') }
