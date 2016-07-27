@@ -6,11 +6,14 @@ debug = <%= node["openstack"]["network"]["debug"] %>
 
 # The Neutron user information for accessing the Neutron API.
 auth_version = v3.0
+auth_plugin = password
 auth_uri = <%= @identity_endpoint.to_s %>
 auth_region = <%= node["openstack"]["network"]["region"] %>
-admin_tenant_name = <%= node["openstack"]["network"]["service_tenant_name"] %>
-admin_user = <%= node["openstack"]["network"]["service_user"] %>
+project_name = <%= node["openstack"]["network"]["service_tenant_name"] %>
+username = <%= node["openstack"]["network"]["service_user"] %>
 admin_password = <%= @service_pass %>
+user_domain_name = default
+project_domain_name = default
 
 # IP address used by Nova metadata server
 nova_metadata_ip = <%= @compute_metadata_ip %>
