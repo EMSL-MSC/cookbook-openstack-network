@@ -5,7 +5,8 @@
 debug = <%= node["openstack"]["network"]["debug"] %>
 
 # The Neutron user information for accessing the Neutron API.
-auth_url = <%= @identity_endpoint.to_s %>
+auth_version = v3.0
+auth_uri = <%= @identity_endpoint.to_s %>
 auth_region = <%= node["openstack"]["network"]["region"] %>
 admin_tenant_name = <%= node["openstack"]["network"]["service_tenant_name"] %>
 admin_user = <%= node["openstack"]["network"]["service_user"] %>
