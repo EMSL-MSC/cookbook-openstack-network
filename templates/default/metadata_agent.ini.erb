@@ -11,9 +11,9 @@ auth_uri = <%= @identity_endpoint.to_s %>
 auth_region = <%= node["openstack"]["network"]["region"] %>
 project_name = <%= node["openstack"]["network"]["service_tenant_name"] %>
 username = <%= node["openstack"]["network"]["service_user"] %>
-admin_password = <%= @service_pass %>
-user_domain_name = default
-project_domain_name = default
+password = <%= @service_pass %>
+user_domain_name = Default
+project_domain_name = Default
 
 # IP address used by Nova metadata server
 nova_metadata_ip = <%= @compute_metadata_ip %>
